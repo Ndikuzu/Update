@@ -8,16 +8,19 @@ if (!mime) throw 'Kirim/Reply Gambar dengan caption .remini'
 m.reply(wait)
 let media = await q.download()
 let url = await fileIO(media)
-let reminiv1 = await downloadAsBuffer(`${webapi}api/ai/remini?url=${url}&apikey=${apichan}`)
-if(reminiv1.length === 127){
-    let reminiv2 = await downloadAsBuffer(`${webapi}api/ai/upscale?url=${url}&apikey=${apichan}`)
-            conn.sendFile(m.chat, reminiv2, 'remini.jpg', '👌 Done Menggunakan ReminiV2', m)
-}else{
-//console.log(reminiv1.length);
- conn.sendFile(m.chat, reminiv1, 'remini.jpg', '👌 Done Menggunakan ReminiV1', m)
+let res = await fetch(`${neNdikz}api/remini?image=${url}&apikey=${neoapi}`)
+  let vas = await res.json()
+  let v = vas.data
+  
+  let cap = `${htki}  *REMINI V1* ${htka}
+  
+▢ *DONE REMINI?*
+${dmenuf}
+`
+    
+conn.sendFile(m.chat, v.url, null, cap, m)
 //conn.sendFile(m.chat, hasil, '', wm, m)
 	
-}
 }
 handler.help = ['remini']
 handler.tags = ['maker']
@@ -25,17 +28,7 @@ handler.command = /^(remini|hd|hdr|upscale)$/i
 handler.limit = true
 
 module.exports = handler
-async function downloadAsBuffer(url) {
-    const https = require("https");
-    return new Promise((resolve, reject) => {
-        https.get(url, (response) => {
-            const chunks = [];
-            response.on("data", (chunk) => chunks.push(chunk)); // Mengumpulkan data dalam buffer
-            response.on("end", () => resolve(Buffer.concat(chunks))); // Gabungkan semua buffer
-            response.on("error", reject); // Tangani kesalahan
-        });
-    });
-}
+
 async function getBuffer(url, options) {
         try {
                 options ? options : {}

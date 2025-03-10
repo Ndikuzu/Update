@@ -17,13 +17,13 @@ let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) =
     //   let Ytdl = await ytmp4(args[0])
         
         let ahh = await getBuffer(`${webapi}api/canvas/YoutubeThumb?url=${args[0]}&apikey=${apichan}`)
-        let rasat = await(await fetch(`${webapi}api/downloader/youtube-video?url=${args[0]}&apikey=${apichan}`)).json()
+        let rasat = await(await fetch(`${neNdikz}api/youtube?url=${args[0]}&type=video&quality=720p&apikey=${neoapi}`)).json()
         if(!rasat.data) return m.reply(rasat.message)
         let cap = `
 *${cmenut} YOUTUBE ${cmenuh}*
 
-*${dmenub} Title:* ${rasat.data.title}
-*${dmenub} Type:* mp3
+*${dmenub} Title:* ${rasat.data.filename}
+*${dmenub} Type:* mp4
 *${dmenub} Filesize:* -
 
 ${cmenuf}
@@ -59,20 +59,20 @@ await conn.sendFile(m.chat, ahh, 'image/jpg', cap, m);
             console.error(e)
             m.reply(`––––––『 ⎔ 𝙇𝙤𝙖𝙙𝙞𝙣𝙜... 』––––––\n\nMencari Server Fresh`)
             try {
-                const data = await axios.get(`https://api.botcahx.eu.org/api/dowloader/yt?url=${args}&apikey=${apichan}`)
+                const data = await axios.get(`${neNdikz}api/youtube?url=${args}&type=video&quality=720p&apikey=${neoapi}`)
         if (data.data.status == 403) return m.reply(data.data.message)
-        let mp4 = data.data.result.mp4
+        let mp4 = data.data.data.url
         let cap = `${htki}  *PLAY YTDL* ${htka}
   
-▢ *☃️Titel* : ${data.data.result.title}
+▢ *☃️Titel* : ${data.data.data.filename}
 ▢ *☃️ Ext* : mp4
 ▢ *☃️ Channel* : -
-▢ *☃️ Views* : ${data.data.result.view}
+▢ *☃️ fileQuality* : ${data.data.data.quality}
 
 KETIK .ytmp3 JIKA INGIN MENDOWNLOAD AUDIO
 ${dmenuf}
 `
-        conn.sendFile(m.chat, mp4.result, 'yt.mp4', `${cap}`, m)
+        conn.sendFile(m.chat, mp4, 'yt.mp4', `${cap}`, m)
             } catch (e) {
                 console.error(e)
                 m.reply('Terjadi kesalahan saat memproses permintaan Anda')

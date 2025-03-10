@@ -58,17 +58,17 @@ await conn.sendFile(m.chat, ahh, 'image/jpg', cap, m);
         console.log(e)
         try {
 
-            let dat = await(await fetch(`https://widipe.com/download/ytdl?url=${args[0]}`)).json()
-            let yt = dat.result
+            let dat = await(await fetch(`${neNdikz}api/youtube?url=${args[0]}&type=audio&quality=128kbps&apikey=${neoapi}`)).json()
+            let yt = dat.data
             let ytl = "https://youtube.com/watch?v="
             let dls = "Download audio succes ( V2 )"
             let ytthumb = await (await conn.getFile(yt.thumbnail)).data
             let doc = {
                 audio: {
-                    url: yt.mp3
+                    url: yt.url
                 },
                 mimetype: "audio/mp4",
-                fileName: yt.title,
+                fileName: yt.filename,
                 contextInfo: {
                     externalAdReply: {
                         showAdAttribution: true,

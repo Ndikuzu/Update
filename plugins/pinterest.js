@@ -65,7 +65,7 @@ async function createImage(url) {
     let id = `${Math.floor(Math.random() * 5)}`
 	  if (!text) throw `Contoh: ${usedPrefix + command} cewe cantik`
       try {
-let res = await fetch(`${webapi}api/search/pinterest?q=${text}&apikey=${apichan}`)
+let res = await fetch(`${neNdikz}api/pinterest?q=${text}&apikey=${neoapi}`)
 let wes = await res.json()
                 let was = wes.data
 let cita = wes.data[Math.floor(Math.random() * was.length)]

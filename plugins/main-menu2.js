@@ -98,6 +98,8 @@ ${registered ? '🎨 • *Age:* ' + age : ''}
 ==========================
 		*BOT ADS*
 		_mau produk/jasa kamu di iklankan seperti dibawah? hubungi owner dengan ketik .owner_
+
+
 ${adss}
 
 _*KETIK PERINTAH DIATAS UNTUK MENGGUNAKANNYA*_`

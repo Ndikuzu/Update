@@ -109,8 +109,8 @@ conn.sendMessage(m.chat, { document: { url:  json.url }, mimetype: 'document', f
              //   console.log(anaa)
 const thumbnailUrl = search.videos[0].thumbnail;
 const title = search.videos[0].title;
-     let li = await (await fetch(`https://api.lolhuman.xyz/api/shortlink?apikey=${apichan}&url=${yy.url}`)).json()
-     let linknya = li.result
+     let li = await (await fetch(`https://ai.xterm.codes/api/downloader/youtube?url=${yy.url}&type=mp3&key=Bell409`)).json()
+     let linknya = li.data
     // let linknya = await convertToUrl(anaa.buffer)
               /*  conn.sendMessage(m.chat, {
 text: vap,
@@ -124,7 +124,7 @@ renderLargerThumbnail: true
                   let doc = { 
   audio: 
   { 
-    url:  yy.url
+    url:  yy.dlink
 }, 
 mimetype: 'audio/mp4', fileName: `${title}`, contextInfo: { externalAdReply: { showAdAttribution: true,
 mediaType:  2,
