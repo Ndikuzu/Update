@@ -15,12 +15,16 @@ ${dmenub2} antilink
 ${dmenub2} antilinknokick
 ${dmenub2} antidelete
 ${dmenub2} antiporn
+${dmenub2} antiviewonce
 ${dmenub2} antifoto
 ${dmenub2} antitoxic
 ${dmenub2} antisticker
 ${dmenub2} autosticker
 ${dmenub2} autolevelup
 ${dmenub2} detect
+${dmenub2} autoai
+${dmenub2} autodownload
+${dmenub2} captcha
 ${dmenub2} simi
 ${dmenub2} document
 ${dmenub2} whitelistmycontacts
@@ -134,6 +138,18 @@ let msg = generateWAMessageFromContent(m.chat, {
       }
       chat.welcome = isEnable
       break
+      case 'autoai':
+      if (!m.isGroup) {
+        if (!isOwner) {
+          global.dfail('group', m, conn)
+          throw false
+        }
+      } else if (!isAdmin) {
+        global.dfail('admin', m, conn)
+        throw false
+      }
+      chat.autoAi = isEnable
+      break
     case 'detect':
       if (!m.isGroup) {
         if (!isOwner) {
@@ -155,6 +171,13 @@ let msg = generateWAMessageFromContent(m.chat, {
       }
       chat.delete = isEnable
       break
+      case 'autodownload':
+           if (!(isAdmin || isOwner)) {
+                global.dfail('admin', m, conn)
+                throw false
+           }
+           chat.autodownload = isEnable
+           break
     case 'antidelete':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
@@ -183,6 +206,15 @@ let msg = generateWAMessageFromContent(m.chat, {
         throw false
       }
       global.opts['self'] = !isEnable
+      break
+      case 'captcha':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          global.dfail('admin', m, conn)
+          throw false
+        }
+      }
+      chat.captcha = isEnable
       break
     case 'antilink':
       if (m.isGroup) {
@@ -256,6 +288,22 @@ let msg = generateWAMessageFromContent(m.chat, {
       }
       chat.antiToxic = isEnable
       break
+      case 'antiviewonce':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          global.dfail('admin', m, conn)
+          throw false
+        }
+      }
+      chat.viewonce = isEnable
+      break
+      case 'ngetik':
+       if (!isROwner) {
+          global.dfail('rowner', m, conn)
+          throw false
+        }
+        chat.ngetik = isEnable
+        break
     case 'autolevelup':
       isUser = true
       user.autolevelup = isEnable
