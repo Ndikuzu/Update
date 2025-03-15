@@ -94,8 +94,7 @@ await conn.sendFile(m.chat, ahh, 'image/jpg', cap, m);
 handler.help = ["mp3", "a"].map(v => "yt" + v + ` *[url YouTube]*`)
 handler.tags = ["downloader"]
 handler.command = /^y((outube|tb)audio|(outube|tb?)mp3|utubaudio|taudio|ta)$/i
-handler.limit = 5
-handler.limit = true
+handler.limit = 15
 
 module.exports = handler
 

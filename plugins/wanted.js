@@ -10,14 +10,13 @@ if (!mime) throw `Kirim/Reply Gambar dengan caption ${command}`
 m.reply(`💀`)
 let media = await q.download()
 let url = await uploadImage(media)
-let hasil = `https://api.lolhuman.xyz/api/creator1/wanted?apikey=82389ffbed5cd3ab5e3bdd81&img=${url}`
+let hasil = `https://api.lolhuman.xyz/api/creator1/wanted?apikey=${apichan}&img=${url}`
 await conn.sendFile(m.chat, hasil, '', `${global.wm}`, m)
 }
 
 handler.help = ['wanted']
 handler.tags = ['fun']
 handler.command = /^(wanted)$/i
-handler.limit = 5
-handler.limit = true
+handler.limit = 15
 handler.premium = false
 module.exports = handler

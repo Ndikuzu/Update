@@ -22,8 +22,7 @@ conn.sendFile(m.chat, Owh.url, null, wm, m)
 handler.help = ['toreal']
 handler.tags = ['maker']
 handler.command = /^(toreal)$/i
-handler.limit = 5
-handler.limit = true
+handler.limit = 20
 
 
 module.exports = handler

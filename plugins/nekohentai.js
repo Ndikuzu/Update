@@ -12,7 +12,6 @@ m.reply(`Neko Akan Di Kirim Di Priv Chatಥ_ಥ`)
 handler.help = ['neko']
 handler.tags = ['internet']
 handler.command = /^hneko$/i
-handler.limit = 5
-handler.limit = true
+handler.limit = 50
 
 module.exports = handler

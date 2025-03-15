@@ -23,8 +23,7 @@ await m.reply(cap)
 
 handler.help = ['tebakgender']
 handler.tags = ['fun']
-handler.limit = 5
-handler.limit = true
+handler.limit = 15
 
 handler.command = /^(tebakgender|gender)$/i
 

@@ -41,7 +41,6 @@ let handler = async (m, { conn }) => {
 handler.help = ['whatanime *<image>*'];
 handler.tags = ['internet'];
 handler.command = /^whatanime$/i;
-handler.limit = 5
-handler.limit = true
+handler.limit = 15
 
 module.exports = handler;

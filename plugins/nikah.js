@@ -25,8 +25,7 @@ await m.reply(cap)
 
 handler.help = ['nikah (tanggal|bulan|tahun)']
 handler.tags = ['fun']
-handler.limit = 5
-handler.limit = true
+handler.limit = 15
 
 handler.command = /^(ceknikah|nikah|tebaknikah)$/i
 

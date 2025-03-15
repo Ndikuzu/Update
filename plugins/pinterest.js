@@ -80,8 +80,7 @@ let cita = wes.data[Math.floor(Math.random() * was.length)]
 handler.help = ['pinterest <text>']
 handler.tags = ['internet']
 handler.command = /^(pinterest|pin)$/i
-handler.limit = 5
-handler.limit = true
+handler.limit = 15
 
 
 module.exports = handler

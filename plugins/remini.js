@@ -25,8 +25,7 @@ conn.sendFile(m.chat, v.url, null, cap, m)
 handler.help = ['remini']
 handler.tags = ['maker']
 handler.command = /^(remini|hd|hdr|upscale)$/i
-handler.limit = 5
-handler.limit = true
+handler.limit = 15
 
 
 module.exports = handler

@@ -85,7 +85,7 @@ ${cmenuf}
 ${dmenuf}
 `
     
-    conn.sendFile(m.sender, v.url, null, cap, m)
+    conn.sendFile(m.chat, v.url, null, cap, m)
 
         // Mengirim audio sebagai dokumen
 
@@ -106,7 +106,7 @@ ${dmenuf}
 handler.help = ['playvideo'].map(v => v + ' <Nama Lagu>');
 handler.tags = ['downloader'];
 handler.command = /^(playvideo)$/i;
-handler.limit = 5;
+handler.limit = 20;
 
 module.exports = handler;
 

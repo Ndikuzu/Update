@@ -18,8 +18,7 @@ await conn.sendFile(m.chat, v.url, '', wm, m)
 handler.help = ['jadianime']
 handler.tags = ['maker']
 handler.command = /^(jadianime|toanime)$/i
-handler.limit = 5
-handler.limit = true
+handler.limit = 15
 
 
 module.exports = handler

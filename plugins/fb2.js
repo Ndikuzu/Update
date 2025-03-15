@@ -15,8 +15,7 @@ handler.help = ['fb2'].map(v => v + ' <url>')
 handler.tags = ['downloader']
 
 handler.command = /^f((b|acebook|)(dl|download)?(er)?(2)?)$/i
-handler.limit = 5
-handler.limit = true
+handler.limit = 15
 
 handler.group = true
 

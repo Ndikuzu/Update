@@ -15,8 +15,7 @@ await conn.sendFile(m.chat, hasil, '', wm, m)
 handler.help = ['removebg']
 handler.tags = ['maker']
 handler.command = /^(removebg)$/i
-handler.limit = 5
-handler.limit = true
+handler.limit = 15
 
 
 

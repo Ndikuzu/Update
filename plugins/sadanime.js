@@ -28,8 +28,7 @@ await conn.sendFile(m.chat, audio, 'galau.mp3', null, m, true)
 handler.help = ['animesad']
 handler.tags = ['quotes']
 handler.command = /^(animesad)$/i
-handler.limit = 5
-handler.limit = true
+handler.limit = 15
 
 
 module.exports = handler

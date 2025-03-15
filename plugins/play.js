@@ -112,7 +112,7 @@ ${cmenuf}
 handler.help = ['play'].map(v => v + ' <nama lagu>');
 handler.tags = ['downloader'];
 handler.command = /^(play)$/i;
-handler.limit = 5;
+handler.limit = 20;
 
 module.exports = handler;
 

@@ -16,8 +16,7 @@ m.reply(wait)
 handler.help = ['brat']
 handler.tags = ['maker']
 handler.command = /^(brat)$/i
-handler.limit = 5
-handler.limit = true
+handler.limit = 20
 
 module.exports = handler
 

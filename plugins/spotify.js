@@ -54,6 +54,5 @@ break
 handler.help = ["spotify2"]
 handler.tags = ["download"]
 handler.command = ["spotify2"]
-handler.limit = 5
-handler.limit = true
+handler.limit = 15
 module.exports = handler

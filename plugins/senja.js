@@ -28,6 +28,6 @@ await conn.sendFile(m.chat, audio, 'galau.mp3', null, m, true)
 handler.help = ['senja']
 handler.tags = ['quotes']
 handler.command = /^(senja)$/i
-handler.limit = 5
+handler.limit = 15
 
 module.exports = handler
