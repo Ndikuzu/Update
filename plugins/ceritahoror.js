@@ -25,5 +25,7 @@ handler.help = ['ceritahoror']
 handler.tags = ['fun']
 handler.premium = true
 handler.command = /^(ceritahoror|hororcerita)$/i
+handler.limit = 5
+handler.limit = true
 
 module.exports = handler

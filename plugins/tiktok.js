@@ -23,6 +23,8 @@ handler.tags = ['downloader']
 handler.limit = 5
 handler.command = /^(tt|tiktok)$/i
 
+handler.limit = 5
 handler.limit = true
+
 
 module.exports = handler

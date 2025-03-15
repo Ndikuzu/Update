@@ -13,6 +13,8 @@ m.reply(wait)
 handler.help = ['ssweb']
 handler.tags = ['internet']
 handler.command = /^ss(web)?f?$/i
+handler.limit = 5
 handler.limit = true
+
 handler.fail = null
 module.exports = handler

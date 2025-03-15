@@ -10,7 +10,9 @@ let handler = async (m, { text, usedPrefix, command }) => {
 handler.help = ['lirik'].map(v => v + ' <teks>')
 handler.tags = ['internet']
 handler.command = /^(lirik|lyrics|lyric)$/i
+handler.limit = 5
 handler.limit = true
+
 
 module.exports = handler
 

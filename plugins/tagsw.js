@@ -1,5 +1,5 @@
+let { generateWAMessageFromContent } = require('@adiwajshing/baileys')
 let fetch = require('node-fetch')
-import baileys from "@adiwajshing/baileys"
 let { generateWAMessageFromContent, prepareWAMessageMedia, proto } = require("@adiwajshing/baileys") 
 let handler = async (m, { conn, command, args }) => {
   let text = args.length ? args.join(" ") : m.quoted?.text

@@ -25,9 +25,11 @@ ${dmenuf}
 await m.reply(cap)
 }
 
-handler.help = ['tebakjodoh']
+handler.help = ['jodoh NAMA1|NAMA2']
 handler.tags = ['fun']
 handler.premium = false
-handler.command = /^(tebakjodoh|jodoh)$/i
+handler.command = /^(jodoh)$/i
+handler.limit = 5
+handler.limit = true
 
 module.exports = handler

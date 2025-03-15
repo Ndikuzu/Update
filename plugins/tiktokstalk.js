@@ -28,6 +28,8 @@ ${dmenuf}
 handler.help = ['tiktokstalk']
 handler.tags = ['internet']
 handler.command = /^(ttstalk|tiktokstalk)$/i
+handler.limit = 5
 handler.limit = true
+
 //MADE IN ERPAN 1140 BERKOLABORASI DENGAN BTS
 module.exports = handler

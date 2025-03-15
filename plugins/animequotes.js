@@ -18,11 +18,13 @@ let handler = async (m, { conn, args, text, isPrems, isOwner, usedPrefix, comman
 ${dmenuf}
 `
     
-conn.sendFile(m.sender, v.image, null, cap, m)
+conn.sendFile(m.chat, v.image, null, cap, m)
     }
 
 handler.help = ['quotesanime']
 handler.tags = ['quotes']
 handler.command = /^(quotesanime|animequotes|kataanime)$/i
+handler.limit = 5
 handler.limit = true
+
 module.exports = handler

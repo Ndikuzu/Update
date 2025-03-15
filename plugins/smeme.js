@@ -35,7 +35,9 @@ handler.help = ['smeme']
 handler.tags = ['sticker']
 handler.command = /^smeme$/i
 
+handler.limit = 5
 handler.limit = true
+
 
 handler.fail = null
 

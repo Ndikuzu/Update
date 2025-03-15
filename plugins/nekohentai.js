@@ -7,12 +7,12 @@ m.reply(`Neko Akan Di Kirim Di Priv Chatಥ_ಥ`)
   if (!res.ok) throw await res.text()
   let json = await res.json()
   if (!json.url) throw 'Error!'
-  conn.sendFile(m.sender, json.url, '', 'Neko Punya @6281325600199 Jan Di Ambilಥ_ಥ', m)
+  conn.sendFile(m.sender, json.url, '', 'Neko KU Jan Di Ambilಥ_ಥ', m)
 }
 handler.help = ['neko']
 handler.tags = ['internet']
 handler.command = /^hneko$/i
+handler.limit = 5
 handler.limit = true
-handler.rowner = true
 
 module.exports = handler

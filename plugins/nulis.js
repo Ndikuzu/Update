@@ -8,9 +8,11 @@ let handler = async (m, { conn, args, text, isPrems, isOwner, usedPrefix, comman
   let v = vas.data
     conn.sendFile(m.chat, v.url, null, wm, m)  
 }
-handler.help = ['n'].map(v => v + 'ulis <teks>')
+handler.help = ['nulis'].map(v => v + 'ulis <teks>')
 handler.tags = ['maker']
 handler.command = /^nulis$/i
+handler.limit = 5
 handler.limit = true
+
 
 module.exports = handler

@@ -25,7 +25,9 @@ await m.reply(cap)
 
 handler.help = ['nikah (tanggal|bulan|tahun)']
 handler.tags = ['fun']
-handler.premium = false
+handler.limit = 5
+handler.limit = true
+
 handler.command = /^(ceknikah|nikah|tebaknikah)$/i
 
 module.exports = handler

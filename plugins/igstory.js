@@ -22,6 +22,8 @@ handler.tags = ['download']
 handler.command = /^((ig|instagram)story)$/i
 
 handler.premium = false
+handler.limit = 5
 handler.limit = true
+
 
 module.exports = handler

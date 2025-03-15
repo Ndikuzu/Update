@@ -53,6 +53,9 @@ let text
 handler.help = ['qc']
 handler.tags = ['sticker']
 handler.command = /^(qc)$/i
+handler.limit = 5
+handler.limit = true
+
 
 module.exports = handler
 

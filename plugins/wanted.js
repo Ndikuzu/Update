@@ -17,5 +17,7 @@ await conn.sendFile(m.chat, hasil, '', `${global.wm}`, m)
 handler.help = ['wanted']
 handler.tags = ['fun']
 handler.command = /^(wanted)$/i
+handler.limit = 5
+handler.limit = true
 handler.premium = false
 module.exports = handler

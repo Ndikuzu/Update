@@ -36,6 +36,9 @@ handler.help = ['xnxx (search)']
 handler.tags = ['internet']
 handler.command = /^(xnxx)$/i
 handler.limit = true
+handler.limit = 5
+handler.limit = true
+
 handler.group = false
 
 module.exports = handler

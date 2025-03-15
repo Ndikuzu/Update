@@ -86,7 +86,7 @@ Detail Dikirim Ke : @${u.split`@`[0]}`, m, { mentions: [u] })
 Id: ${user.id}                
 Username: ${user.username}
 Password: hehe${password}
-Login: ${webPage}
+Login: ${weblogin}
 Aktif : 1 Bulan
 `,})
 
@@ -434,7 +434,7 @@ Diupdate: ${server.updated_at}`)
 Id: ${user.id}                
 Username: ${user.username}
 Password: ${password}
-Login: ${webPage}
+Login: ${weblogin}
 Aktif : 1 Bulan
 `,})
 			
@@ -557,7 +557,7 @@ Expired: 1 Bulan`)
 Id: ${user.id}                
 Username: ${user.username}
 Password: ${password}
-Login: ${webPage}
+Login: ${weblogin}
 Aktif : 1 Bulan
 `,})
 			
@@ -681,7 +681,7 @@ Expired: 1 Bulan`)
 Id: ${user.id}                
 Username: ${user.username}
 Password: ${password}
-Login: ${webPage}
+Login: ${weblogin}
 Aktif : 1 Bulan
 `,})
 			
@@ -805,7 +805,7 @@ Expired: 1 Bulan`)
 Id: ${user.id}                
 Username: ${user.username}
 Password: ${password}
-Login: ${webPage}
+Login: ${weblogin}
 Aktif : 1 Bulan
 `,})
 			
@@ -1177,7 +1177,7 @@ Expired: 1 Bulan`)
 Id: ${user.id}                
 Username: ${user.username}
 Password: ${password}
-Login: ${webPage}
+Login: ${weblogin}
 Aktif : 1 Bulan
 `,})
 			
@@ -1294,7 +1294,7 @@ Expired: 1 Bulan`)
   await conn.sendMessage(m.chat, { text: messageText }, { quoted: m });
   
   if (res.meta.pagination.current_page < res.meta.pagination.total_pages) {
-    reply(`Gunakan perintah ${command}listsrv ${res.meta.pagination.current_page + 1} untuk melihat halaman selanjutnya.`);
+    m.reply(`Gunakan perintah ${command}listsrv ${res.meta.pagination.current_page + 1} untuk melihat halaman selanjutnya.`);
   }
 }
 break
@@ -1348,7 +1348,7 @@ break
 Id: ${user.id}                
 Username: ${user.username}
 Password: ${password}
-Login: ${webPage}
+Login: ${weblogin}
 Aktif : 1 Bulan
 `,})
 			

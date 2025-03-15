@@ -6,18 +6,18 @@ let handler = async (m, { conn, args, text, isPrems, isOwner, usedPrefix, comman
 if (!text) throw `Masukkan pertanyaan!\n\n*Contoh:* Siapa presiden Indonesia? `
     let id = `${Math.floor(Math.random() * 5)}`
 	 let chat = global.db.data.chats[m.chat]
-	 m.reply(wait) 
-			let res = await fetch(`${neNdikz}api/gpt4-session?q=${text}&session=1727468410446638&apikey=${neoapi}`)
+			let res = await fetch(`${alyaNdikz}api/gpt-3.5-turbo?prompt=${text}&apikey=${alyaapi}`)
   let vas = await res.json()
   let v = vas.data
   
-  let cap = `${v.message}
+  let cap = `${v.content}
 `
     
 await m.reply(cap)
     }
 handler.command = handler.help = ['ai2','aiturbo','chatgpt','ai','openai'];
 handler.tags = ['internet','tools'];
-handler.limit = 4
+handler.limit = 5
+handler.limit = true
 handler.premium = false
 module.exports = handler;

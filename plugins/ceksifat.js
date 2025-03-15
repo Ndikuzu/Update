@@ -1,11 +1,9 @@
 let handler = async (m, { conn, command, text }) => {
 	
-    if (!text) return conn.reply(m.chat, '• *Example :* .ceksifat kemii', m)
-	
   conn.reply(m.chat, `
-╭━━━━°「 *Sifat ${text}* 」°
+╭━━━━°「 *Sifat @${m.sender.split`@`[0]}* 」°
 ┃
-┊• Nama : ${text}
+┊• Nama : @${m.sender.split`@`[0]}
 ┃• Ahlak Baik : ${pickRandom(['6%','12%','20%','27%','35%','41%','49%','54%','60%','66%','73%','78%','84%','92%','93%','94%','96%','98,3%','99,7%','99,9%','1%','2,9%','0%','0,4%'])}
 ┊• Ahlak Buruk : ${pickRandom(['6%','12%','20%','27%','35%','41%','49%','54%','60%','66%','73%','78%','84%','92%','93%','94%','96%','98,3%','99,7%','99,9%','1%','2,9%','0%','0,4%'])}
 ┃• Orang yang : ${pickRandom(['Baik Hati','Sombong','Pelit','Dermawan','Rendah Hati','Rendah Diri','Pemalu','Penakut','Pengusil','Cengeng'])}

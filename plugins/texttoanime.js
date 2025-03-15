@@ -10,6 +10,8 @@ await conn.sendFile(m.chat, hasil, '', wm, m)
 handler.help = ['animediff']
 handler.tags = ['internet']
 handler.command = /^(animediff)$/i
+handler.limit = 5
 handler.limit = true
+
 //MADE IN ERPAN 1140 BERKOLABORASI DENGAN BTS
 module.exports = handler

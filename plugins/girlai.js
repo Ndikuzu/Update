@@ -18,7 +18,7 @@ let cita = wes.result[Math.floor(Math.random() * was.length)]
     
 handler.help = ['girl-ai']
 handler.tags = ['internet']
-handler.command = /^(girl-ai|ntahlah)$/i
+handler.command = /^(girl-ai)$/i
 handler.limit = true
 handler.rowner = true
 

@@ -8,15 +8,19 @@ if (!mime) throw 'Kirim/Reply Gambar'
 m.reply(wait)
 let media = await q.download()
 let url = await fileIO(media)
-let hasil = await (await fetch(`${skyNdikz}api/toanime?apikey=${skyapi}&url=${url}`)).buffer()
-await conn.sendFile(m.chat, hasil, '', wm, m)
+let res = await fetch(`${neNdikz}api/toanime?image=${url}&apikey=${neoapi}`)
+let vas = await res.json()
+  let v = vas.data
+await conn.sendFile(m.chat, v.url, '', wm, m)
 //conn.sendFile(m.chat, hasil, '', wm, m)
 	
 }
 handler.help = ['jadianime']
 handler.tags = ['maker']
 handler.command = /^(jadianime|toanime)$/i
+handler.limit = 5
 handler.limit = true
+
 
 module.exports = handler
 

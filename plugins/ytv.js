@@ -85,6 +85,9 @@ ${dmenuf}
 handler.help = ['mp4', 'v', ''].map(v => 'yt' + v + ` <url> <without message>`)
 handler.tags = ['downloader']
 handler.command = /^yt(v|mp4)?$/i
+handler.limit = 5
+handler.limit = true
+
 module.exports = handler
 
 async function ytmp4(url) {

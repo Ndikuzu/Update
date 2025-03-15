@@ -6,7 +6,7 @@ const { MessageType } = require('@adiwajshing/baileys')
 let handler = async (m, { conn, usedPrefix, command, text }) => {
 if (!text) return conn.reply(m.chat, `text? Contoh.  .brat Jancok`, m)
 m.reply(wait)
-  let res = await fetch(`${neNdikz}api/brat?text=${text}&apikey=${neoapi}`)
+  let res = await fetch(`${alyaNdikz}api/brat?text=${text}&apikey=${alyaapi}`)
   let vas = await res.json()
   let v = vas.data
     
@@ -16,6 +16,7 @@ m.reply(wait)
 handler.help = ['brat']
 handler.tags = ['maker']
 handler.command = /^(brat)$/i
+handler.limit = 5
 handler.limit = true
 
 module.exports = handler

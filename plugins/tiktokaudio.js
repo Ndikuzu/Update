@@ -34,7 +34,7 @@ await conn.sendMessage(m.chat, { document: { url:  mpe3.result }, mimetype: 'doc
       console.log(e)
       conn.sendMessage(m.chat, {
         react: {
-            text: "‚è≥",
+            text: "‚è?",
             key: m.key, }})
         var res = await fetch(`https://api.lolhuman.xyz/api/ytvideo2?apikey=${apichan}&url=${text}`)
   			var user = await res.json()
@@ -45,7 +45,7 @@ await conn.sendMessage(m.chat, { document: { url:  mpe3.result }, mimetype: 'doc
           //  var sce = cvr.url
             
             var tmb = v.thumbnail
-            var captionvid = `‚àò Title: ${v.title}\n‚àò Bot By: ${wm}\n‚àò Url:  ${text}\n\n *Proses Sedang Mengirim Audio....*`
+            var captionvid = `‚à? Title: ${v.title}\n‚à? Bot By: ${wm}\n‚à? Url:  ${text}\n\n *Proses Sedang Mengirim Audio....*`
             var pesan = await conn.sendMessage(m.chat, {
                 text: captionvid,
                 contextInfo: {
@@ -83,14 +83,16 @@ await conn.sendMessage(m.chat, { document: { url:  mpe3.result }, mimetype: 'doc
         conn.sendMessage(m.chat, { document: { url: sce}, mimetype: 'document', fileName: `${v.title}.mp3`}, {quoted: m})
        conn.sendMessage(m.chat, {
         react: {
-            text: "‚úÖ",
+            text: "‚ú?",
             key: m.key, }})
   }
 }
 handler.tags = ['downloader']
 handler.command = /^(tiktokaudio|ttaudio|ttmp3)$/i
 
+handler.limit = 5
 handler.limit = true
+
 
 module.exports = handler
 

@@ -28,11 +28,11 @@ conn.sendMessage(m.chat, {text: hasil, contextInfo:
 "renderLargerThumbnail": true
 }
 }}, {quoted: m})
-const spodl = await fetchJson(`https://api.siputzx.my.id/api/d/spotify?url=${random.url}`)
-const spoDl = spodl.download
+const spodl = await fetchJson(`${alyaNdikz}api/spotify-dl?url=${random.url}&apikey=${alyaapi}`)
+const spoDl = spodl.data
 conn.sendMessage(m.chat, {
 audio: {
-url: spoDl
+url: spoDl.url
 },
 mimetype: 'audio/mpeg',
 contextInfo: {
@@ -54,4 +54,6 @@ break
 handler.help = ["spotify2"]
 handler.tags = ["download"]
 handler.command = ["spotify2"]
+handler.limit = 5
+handler.limit = true
 module.exports = handler
