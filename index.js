@@ -161,13 +161,13 @@ Operating System Information:
 - Free Memory: ${(os.freemem() / 1024 / 1024).toFixed(2)} MB
 - Uptime: ${os.uptime()} seconds
 `)
-CFonts.say('ZXCODERID TEAM', {
+CFonts.say('NdikzOne TEAM', {
    font: 'tiny',
    align: 'center',
    colors: ['#f80'],
    transitionGradient: true,
    gradient: ['#12c2e9', '#c471ed'],
-}), CFonts.say('By: PMD', {
+}), CFonts.say('By: Ndikz', {
    colors: ['system'],
    font: 'console',
    align: 'center',
@@ -180,10 +180,10 @@ lolcatjs.fromString(`${imageAscii}`)
 console.log(color(`[•]`, 'aqua'), color(`Hai          : Owner`, 'yellow'))
 	  console.log(color(`[•]`, 'aqua'), color(`Bot Version  : 2.0.2`, 'lime'))
 	  console.log(color(`[•]`, 'aqua'), color(`Status       : Online!`, 'white'))
-	  console.log(color(`[•]`, 'aqua'), color(`Owner        : IchanzXD CoderID`, 'red'))
-	  console.log(color(`[•]`, 'aqua'), color(`Devoloper    : @IchanxD`, 'magenta'))
+	  console.log(color(`[•]`, 'aqua'), color(`Owner        : NdikzOne`, 'red'))
+	  console.log(color(`[•]`, 'aqua'), color(`Devoloper    : @Ndikuzu`, 'magenta'))
 
-console.log(color(figlet.textSync('IchanZX-Coder', {
+console.log(color(figlet.textSync('Ndikz-One', {
 font: 'Standard',
 horizontalLayout: 'default',
 vertivalLayout: 'default',

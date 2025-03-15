@@ -2,12 +2,12 @@ const simple = require('./lib/simple')
 const util = require('util')
 const { color } = require('./lib/color')
 const moment = require("moment-timezone")
-const buka = require('./lib/ichan/_autobukagrup.js')
-const tutup = require('./lib/ichan/_autotutupgrup.js')
-const datashalat = require('./lib/ichan/datashalat.js')
+const buka = require('./lib/Ndikz/_autobukagrup.js')
+const tutup = require('./lib/Ndikz/_autotutupgrup.js')
+const datashalat = require('./lib/Ndikz/datashalat.js')
 const scbackup = require('./schedule/backupsc.js')
-const backup = require('./lib/ichan/autobackup.js')
-const cleartmp = require('./lib/ichan/cleartmp.js')
+const backup = require('./lib/Ndikz/autobackup.js')
+const cleartmp = require('./lib/Ndikz/cleartmp.js')
 const fixerror = require('./lib/sendError.js')
 const isNumber = x => typeof x === 'number' && !isNaN(x)
 const delay = ms => isNumber(ms) && new Promise(resolve => setTimeout(resolve, ms))
@@ -650,6 +650,9 @@ module.exports = {
             if (typeof m.text !== 'string') m.text = ''
 
             const isROwner = [global.conn.user.jid, ...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+            const isNdikz = [global.conn.user.jid, ...global.ndikzowner].
+            map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+            const isNd = isNdikz || m.fromMe
             const isOwner = isROwner || m.fromMe
             const isMods = isOwner || global.mods.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
             const isPrems = db.data.users[m.sender].premium
@@ -738,6 +741,8 @@ module.exports = {
                     bot,
                     isROwner,
                     isOwner,
+                    isNd,
+                    isNdikz,
                     isRAdmin,
                     isAdmin,
                     isBotAdmin,
@@ -777,6 +782,18 @@ module.exports = {
                     if (plugin.rowner && plugin.owner && !(isROwner || isOwner)) { // Both Owner
                         fail('owner', m, this)
                         continue
+                    }
+                    if (plugin.ndikz && plugin.nd && !(isNdikz || isNd)) { //Bot Ndikz Owner
+                    fail('owner', m, this)
+                    continue
+                    }
+                    if (plugin.ndikz && !isNdikz) { // Real Owner Ndikz
+                    fail('ndikz', m, this)
+                    continue
+                    }
+                    if (plugin.nd && !isNd) { // number owner Ndikz
+                    fail('nd', m, this)
+                    continue
                     }
                     if (plugin.rowner && !isROwner) { // Real Owner
                         fail('rowner', m, this)
@@ -851,6 +868,8 @@ module.exports = {
                         user,
                         bot,
                         isROwner,
+                        isNd,
+                        isNdikz,
                         isOwner,
                         isRAdmin,
                         isAdmin,
@@ -861,7 +880,6 @@ module.exports = {
                         chatUpdate,
                     }
                     try {
-                      //  console.log(m)
                         await plugin.call(this, m, extra)
                         if (!isPrems) m.limit = m.limit || plugin.limit || false
                     } catch (e) {
@@ -873,6 +891,10 @@ module.exports = {
                             for (let key of Object.values(global.APIKeys))
                                 text = text.replace(new RegExp(key, 'g'), '#HIDDEN#')
                             if (e.name) for (let [jid] of global.owner.filter(([number, isCreator, isDeveloper]) => isDeveloper && number)) {
+                                let data = (await conn.onWhatsApp(jid))[0] || {}
+                                if (data.exists) m.reply(`*Plugin:* ${m.plugin}\n*Sender:* ${m.sender}\n*Chat:* ${m.chat}\n*Command:* ${usedPrefix}${command} ${args.join(' ')}\n\n\`\`\`${text}\`\`\``.trim(), data.jid)
+                            }
+                            if (e.name) for (let [jid] of global.ndikzowner.filter(([number, isCreator, isDeveloper]) => isDeveloper && number)) {
                                 let data = (await conn.onWhatsApp(jid))[0] || {}
                                 if (data.exists) m.reply(`*Plugin:* ${m.plugin}\n*Sender:* ${m.sender}\n*Chat:* ${m.chat}\n*Command:* ${usedPrefix}${command} ${args.join(' ')}\n\n\`\`\`${text}\`\`\``.trim(), data.jid)
                             }
@@ -965,9 +987,13 @@ module.exports = {
                             text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc ? String.fromCharCode(8206).repeat(4001) + groupMetadata.desc : '') :
                                 (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', await this.getName(user))
 
-							let wel = `${webapi}api/canvas/welcome?nama=${name}&pp=${pp}&apikey=${apichan}`
-							let lea = `${webapi}api/canvas/goodbye?nama=${name}&pp=${pp}&apikey=${apichan}`
-                            this.sendFile(id, action === 'add' ? wel : lea, 'pp.jpg', text, null, false, { mentions: [user] })
+							let wel = await fetch(`https://api.alyachan.dev/api/welcome?picture=${pp}&background=https%3A%2F%2Fi.ibb.co%2F0tZvYK8%2Fimage.jpg&desc=Welcome ${name}&apikey=ZGRzT9`)
+							let lea = await fetch(`https://api.alyachan.dev/api/leave?picture=${pp}&background=https%3A%2F%2Fi.ibb.co%2F0tZvYK8%2Fimage.jpg&desc=to+my+group&apikey=08mSWt`)
+							let vas = await wel.json()
+  let v = vas.data
+  let vs = await lea.json()
+  let i = vs.data
+                            this.sendFile(id, action === 'add' ? v.url : i.url, 'pp.jpg', text, null, false, { mentions: [user] })
                             /*this.sendMessage(id, {
 						  text: text,
 						  contextInfo: {
@@ -1071,6 +1097,8 @@ conn.ws.on('CB:call', async (json) => {
 
 global.dfail = (type, m, conn) => {
     let msg = {
+    ndikz: `🚩 𝐒𝐨𝐫𝐫𝐲, 𝐂𝐚𝐢 𝐈𝐧𝐢 𝐊𝐡𝐮𝐬𝐮𝐬 𝐍𝐝𝐢𝐤𝐳 𝐎𝐧𝐞 𝐊𝐚𝐫𝐞𝐧𝐚 𝐬𝐮𝐝𝐚𝐡 𝐩𝐚𝐜𝐚𝐫𝐚𝐧 𝐡𝐚𝐡𝐚𝐡𝐚😂`,
+    nd: `🚩 𝐒𝐨𝐫𝐫𝐲, 𝐂𝐨𝐦𝐦𝐚𝐧𝐝 𝐈𝐧𝐢 𝐊𝐡𝐮𝐬𝐮𝐬 𝐍𝐝𝐢𝐤𝐳 𝐎𝐧𝐞 𝐡𝐚😂`,
         rowner: `🚩 𝐒𝐨𝐫𝐫𝐲, *𝐎𝐍𝐋𝐘 𝐃𝐄𝐕𝐄𝐋𝐎𝐏𝐄𝐑* • 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐈𝐍𝐈 𝐇𝐀𝐍𝐘𝐀 𝐔𝐍𝐓𝐔𝐊 𝐃𝐄𝐕𝐄𝐋𝐎𝐏𝐄𝐑 𝐁𝐎𝐓!`,
     owner: `🚩 𝐒𝐨𝐫𝐫𝐲, *𝐎𝐍𝐋𝐘 𝐎𝐖𝐍𝐄𝐑* • 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐈𝐍𝐈 𝐇𝐀𝐍𝐘𝐀 𝐔𝐍𝐓𝐔𝐊 𝐎𝐖𝐍𝐄𝐑 𝐁𝐎𝐓!`,
     mods: `🚩 𝐒𝐨𝐫𝐫𝐲, *𝐎𝐍𝐋𝐘 𝐌𝐎𝐃𝐄𝐑𝐀𝐓𝐎𝐑* • 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐈𝐍𝐈 𝐇𝐀𝐍𝐘𝐀 𝐔𝐍𝐓𝐔𝐊 𝐌𝐎𝐃𝐄𝐑𝐀𝐓𝐎𝐑 𝐁𝐎𝐓!`,
@@ -1082,7 +1110,7 @@ global.dfail = (type, m, conn) => {
     private: `🚩 𝐒𝐨𝐫𝐫𝐲, *𝐏𝐑𝐈𝐕𝐀𝐓𝐄 𝐂𝐇𝐀𝐓* • 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐈𝐍𝐈 𝐇𝐀𝐍𝐘𝐀 𝐁𝐈𝐒𝐀 𝐃𝐈𝐏𝐀𝐊𝐀𝐈 𝐃𝐈 𝐏𝐑𝐈𝐕𝐀𝐓𝐄 𝐂𝐇𝐀𝐓!`,
     admin: `🚩 𝐒𝐨𝐫𝐫𝐲, *𝐎𝐍𝐋𝐘 𝐀𝐃𝐌𝐈𝐍* • 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐈𝐍𝐈 𝐇𝐀𝐍𝐘𝐀 𝐔𝐍𝐓𝐔𝐊 𝐀𝐃𝐌𝐈𝐍 𝐆𝐑𝐎𝐔𝐏!`,
     botAdmin: `🚩𝐒𝐨𝐫𝐫𝐲, *𝐎𝐍𝐋𝐘 𝐁𝐎𝐓 𝐀𝐃𝐌𝐈𝐍* • 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐈𝐍𝐈 𝐇𝐀𝐍𝐘𝐀 𝐁𝐈𝐒𝐀 𝐃𝐈𝐆𝐔𝐍𝐀𝐊𝐀𝐍 𝐊𝐄𝐓𝐈𝐊𝐀 𝐁𝐎𝐓 𝐌𝐄𝐍𝐉𝐀𝐃𝐈 𝐀𝐃𝐌𝐈𝐍!`,
-        unreg: `*「 🚩 𝐃𝐀𝐅𝐓𝐀𝐑 」*\n\n📝 Silahkan daftar ke database terlebih dahulu untuk menggunakan bot ini lebih lanjut. Gunakan perintah berikut:\n\n👉 .daftar namaAnda.umur\n👤 Contoh: .daftar Amir.22\n\n`,
+        unreg: `*「 🚩 𝐃𝐀𝐅𝐓𝐀𝐑 」*\n\n📝 Silahkan daftar ke database terlebih dahulu untuk menggunakan bot ini lebih lanjut. Gunakan perintah berikut:\n\n👉 .daftar namaAnda.umur\n👤 Contoh: .daftar IjulTaka.22\n\n`,
         restrict: '🚩 Fitur ini di *disable*!'
     }[type]
     if (msg) return conn.sendMessage(m.chat, {
@@ -1101,6 +1129,7 @@ renderLargerThumbnail: true
 tutup(conn)
 buka(conn)
 datashalat()
+backup(conn)
 cleartmp(conn)
 const fs = require('fs');
 let chalk = require('chalk')

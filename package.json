@@ -1,7 +1,7 @@
 {
     "name": "NdikzOne-",
     "version": "2.3.1",
-    "description": "BASE TEAM ZXCODERID",
+    "description": "BASE TEAM NdikzOne",
     "depecrated": false,
     "main": "index.js",
     "directories": {
@@ -29,14 +29,14 @@
     ],
     "homepage": "^4.4.0",
     "author": {
-        "name": "IchanZX-CoderID"
+        "name": "Ndikzu-One"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/IchanZX"
+        "url": "git+https://github.com/NdikzOne"
     },
     "bugs": {
-        "url": "https://github.com/IchanZX"
+        "url": "https://github.com/NdikzOne"
     },
     "license": "MIT",
     "dependencies": {
