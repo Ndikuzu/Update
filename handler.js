@@ -1118,7 +1118,7 @@ text: msg,
 contextInfo: {
 externalAdReply: {
 title: namabot,
-thumbnailUrl: "https://telegra.ph/file/9242b744984055caee2dc.jpg",
+thumbnailUrl: "https://telegra.ph/file/b03f71fa0d585901e0b2f.jpg",
 sourceUrl: sgc,
 mediaType: 1,
 renderLargerThumbnail: true
