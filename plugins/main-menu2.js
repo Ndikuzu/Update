@@ -226,7 +226,7 @@ externalAdReply: {
 showAdAttribution: true,
 forwardingScore: 2023,
 title: wm,
-thumbnailUrl: 'https://files.zxcoderid.my.id/image/4384439ef82364f3f6123b42d821b751.jpg',
+thumbnailUrl: 'https://files.catbox.moe/0r9gpl.jpg',
 sourceUrl: sgc, 
 mediaType: 1,
 renderLargerThumbnail: true,
