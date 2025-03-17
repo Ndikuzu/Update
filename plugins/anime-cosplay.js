@@ -7,7 +7,7 @@ conn.sendMessage(m.chat, {
   });
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let name = conn.getName(who)
-  conn.sendFile(m.chat, pickRandom(cosplay), null, done, m)
+  conn.sendFile(m.chat, pickRandom(cosplay), null, wm, m)
 }
 handler.help = ['cosplay']
 handler.tags = ['anime']
