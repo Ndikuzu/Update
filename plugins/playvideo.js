@@ -106,7 +106,7 @@ ${dmenuf}
 handler.help = ['playvideo'].map(v => v + ' <Nama Lagu>');
 handler.tags = ['downloader'];
 handler.command = /^(playvideo)$/i;
-handler.limit = 20;
+handler.limit = 10;
 
 module.exports = handler;
 

@@ -17,6 +17,6 @@ await m.reply(cap)
     }
 handler.command = handler.help = ['ai2','aiturbo','chatgpt','ai','openai'];
 handler.tags = ['internet','tools'];
-handler.limit = 15
+handler.limit = 10
 handler.premium = false
 module.exports = handler;

@@ -24,6 +24,6 @@ conn.sendFile(m.chat, v.image, null, cap, m)
 handler.help = ['quotesanime']
 handler.tags = ['quotes']
 handler.command = /^(quotesanime|animequotes|kataanime)$/i
-handler.limit = 15
+handler.limit = 10
 
 module.exports = handler
