@@ -90,8 +90,7 @@ await conn.sendMessage(m.chat, { document: { url:  mpe3.result }, mimetype: 'doc
 handler.tags = ['downloader']
 handler.command = /^(tiktokaudio|ttaudio|ttmp3)$/i
 
-handler.limit = 15
-handler.limit = true
+handler.limit = 5
 
 
 module.exports = handler

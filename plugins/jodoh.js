@@ -29,6 +29,6 @@ handler.help = ['jodoh NAMA1|NAMA2']
 handler.tags = ['fun']
 handler.premium = false
 handler.command = /^(jodoh)$/i
-handler.limit = 15
+handler.limit = 5
 
 module.exports = handler

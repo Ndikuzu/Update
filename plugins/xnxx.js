@@ -35,7 +35,7 @@ if (!text) throw 'Cari anime apa?'
 handler.help = ['xnxx (search)']
 handler.tags = ['internet']
 handler.command = /^(xnxx)$/i
-handler.limit = 15
+handler.limit = 5
 
 handler.group = false
 

@@ -18,5 +18,5 @@ handler.help = ['facedetect']
 handler.tags = ['fun']
 handler.command = /^(facedetect)$/i
 handler.premium = false
-handler.limit = 15
+handler.limit = 5
 module.exports = handler

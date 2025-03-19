@@ -3,12 +3,13 @@ let fetch = require('node-fetch')
 let handler = async (m, { conn }) => {
 	let url = cosplay[Math.floor(Math.random() * cosplay.length)]
 	let tekk = `Hehehe`
-conn.sendFile(m.chat, url, null, done, m)	
+conn.sendFile(m.chat, url, null, wm, m)	
 }
 handler.tags = ['internet']
 handler.help = ['hentaic']
 handler.command = /^(hentaic)$/i
-handler.premium = true
+handler.premium = false
+handler.limit = 5
 module.exports = handler
 
 global.cosplay = [

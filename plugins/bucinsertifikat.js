@@ -8,6 +8,6 @@ if (!text) throw `Contoh: ${usedPrefix + command} Nama Mu🗿`
 handler.help = ['bucinsertifikat']
 handler.tags = ['fun']
 handler.command = /^(bucinsertifikat)$/i
-handler.limit = 15
+handler.limit = 5
 //MADE IN ERPAN 1140 BERKOLABORASI DENGAN BTS
 module.exports = handler

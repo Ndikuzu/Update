@@ -7,7 +7,7 @@ if (!text) throw `Contoh: ${usedPrefix + command} Nama Mu🗿`
 handler.help = ['tolol']
 handler.tags = ['fun']
 handler.command = /^(tolol)$/i
-handler.limit = 15
+handler.limit = 5
 
 //MADE IN ERPAN 1140 BERKOLABORASI DENGAN BTS
 module.exports = handler

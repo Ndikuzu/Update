@@ -23,6 +23,6 @@ await m.reply(cap)
 handler.help = ['cerpen']
 handler.tags = ['internet']
 handler.command = /^(cerpen|ceritapendee|ceripen)$/i
-handler.limit = 15
+handler.limit = 5
 
 module.exports = handler

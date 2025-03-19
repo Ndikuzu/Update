@@ -20,7 +20,7 @@ let nt = await fetch(`${neNdikz}api/tiktok?url=${args[0]}&apikey=${neoapi}`)
 //conn.sendFile(m.chat, hasil, '', wm, m)
 handler.help = ['tiktok'].map(v => v + ' <url>')
 handler.tags = ['downloader']
-handler.limit = 15
+handler.limit = 5
 handler.command = /^(tt|tiktok)$/i
 
 

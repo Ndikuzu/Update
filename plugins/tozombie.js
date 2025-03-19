@@ -25,7 +25,7 @@ conn.sendFile(m.chat, v.url, null, cap, m)
 handler.help = ['jadizombie']
 handler.tags = ['maker']
 handler.command = /^(tozombie|jadizombie)$/i
-handler.limit = 15
+handler.limit = 5
 
 
 module.exports = handler

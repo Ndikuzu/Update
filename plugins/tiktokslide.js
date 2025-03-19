@@ -23,7 +23,7 @@ handler.tags = ['downloader']
 handler.command = /^((tt|tiktok)slide)$/i
 
 handler.premium = false
-handler.limit = 15
+handler.limit = 5
 
 
 module.exports = handler

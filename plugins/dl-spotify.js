@@ -85,6 +85,6 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 handler.help = ['spotify'];
 handler.command = /^(spotify)$/i;
 handler.tags = ['downloader'];
-handler.limit = 15;
+handler.limit = 5;
 
 module.exports = handler;

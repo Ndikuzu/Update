@@ -19,7 +19,7 @@ ${isTele ? '(Tidak Ada Tanggal Kedaluwarsa)' : '(Expired 24 hours)'}`)
 handler.help = ['tourl <reply image>']
 handler.tags = ['sticker']
 handler.command = /^(upload|tourl)$/i
-handler.limit = 15
+handler.limit = 5
 
 
 module.exports = handler

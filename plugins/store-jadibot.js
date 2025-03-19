@@ -1,7 +1,7 @@
 let baileys = require("@adiwajshing/baileys")
 let { useMultiFileAuthState, DisconnectReason, makeInMemoryStore, jidNormalizedUser, makeCacheableSignalKeyStore, PHONENUMBER_MCC } = baileys
 let { Boom } = require("@hapi/boom")
-let NodeCache = require("node-cache")
+let NodeCache = require("node-fetch")
 let Pino = require("pino")
 let simple = require('../lib/simple')
 let fs = require('fs')

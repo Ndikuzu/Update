@@ -19,7 +19,7 @@ let cita = wes.result[Math.floor(Math.random() * was.length)]
 handler.help = ['girl-ai']
 handler.tags = ['internet']
 handler.command = /^(girl-ai)$/i
-handler.limit = 15
+handler.limit = 5
 handler.rowner = false
 
 module.exports = handler

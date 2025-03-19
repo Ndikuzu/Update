@@ -17,7 +17,7 @@ conn.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/meme/meme
 handler.help = ['meme']
 handler.tags = ['meme']
 handler.command = /^(meme)$/i
-handler.limit = 15
+handler.limit = 5
 
 handler.premium = false
 

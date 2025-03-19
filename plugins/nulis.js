@@ -11,7 +11,7 @@ let handler = async (m, { conn, args, text, isPrems, isOwner, usedPrefix, comman
 handler.help = ['nulis'].map(v => v + 'ulis <teks>')
 handler.tags = ['maker']
 handler.command = /^nulis$/i
-handler.limit = 15
+handler.limit = 5
 
 
 module.exports = handler
