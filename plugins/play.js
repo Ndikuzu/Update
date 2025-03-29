@@ -70,15 +70,15 @@ ${cmenuf}
         }, { quoted: m });
 
         // Mengunduh audio menggunakan btch-downloader atau ytdlv2
-       let rasat = await(await fetch(`${neNdikz}api/youtube?url=${videoUrl}&type=audio&quality=128kbps&apikey=${neoapi}`)).json()
+       let rasat = await(await fetch(`${api.xterm.url}/api/downloader/youtube?url=${videoUrl}&type=mp3&key=${api.xterm.key}`)).json()
 
         // Membuat dokumen audio
         let doc = { 
             audio: { 
-                url: rasat.data.url
+                url: rasat.data.dlink
             }, 
             mimetype: 'audio/mp4', 
-            fileName: `${title}.mp3`, 
+            fileName: `${rasat.data.title}.mp3`, 
             contextInfo: { 
                 externalAdReply: { 
                     showAdAttribution: true,
@@ -87,7 +87,7 @@ ${cmenuf}
                     title: title,
                     body: namabot,
                     sourceUrl: videoUrl,
-                    thumbnail: await (await conn.getFile(thumbnail)).data                                                                     
+                    thumbnail: await (await conn.getFile(thumb)).data                                                                     
                 }
             }
         };
@@ -105,7 +105,7 @@ ${cmenuf}
 
     } catch (error) {
         console.error("Error:", error);
-        await m.reply(`❗️ Terjadi kesalahan: ${error.message}\nSilakan coba lagi atau gunakan perintah yang berbeda.`);
+        await m.reply(`❗️ Terjadi kesalahan:\nSilakan coba lagi atau gunakan perintah yang berbeda.`);
     }
 };
 

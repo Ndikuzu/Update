@@ -1,17 +1,13 @@
-var fetch = require('node-fetch');
-var handler = async (m, {
- text, 
- usedPrefix, 
- command
- }) => {
-if (!text) throw `masukin java script nya`
-//await m.reply(wait)
-  var apii = await fetch(`https://aihub.xtermai.xyz/api/tools/js-protector?code=${text}&key=Bell409`)
-  var js = await apii.json()
-  await m.reply(js.data)
-}      
-handler.command = handler.help = ['enc'];
-handler.tags = ['internet','tools'];
-handler.limit = 4
+var { fg } = require('api-dylux')
+let fetch = require('node-fetch')
+let handler = async (m, { conn, args, code, text, isPrems, isOwner, usedPrefix, command }) => {
+if (!m.quoted) throw `Reply Code Js!`
+			let rasat = await(await fetch(`${api.xterm.url}/api/tools/js-protector?code=${encodeURIComponent(code)}&key=${api.xterm.key}`)).json()
+    
+conn.sendMessage(m.chat, { document: Buffer.from(rasat.data), mimetype:"application/javascript", fileName:"encrypt.js" }, { quoted:m })
+    }
+handler.command = handler.help = ['enc','encjs'];
+handler.tags = ['tools'];
+handler.limit = 5
 handler.premium = false
 module.exports = handler;

@@ -58,7 +58,7 @@ await conn.sendFile(m.chat, ahh, 'image/jpg', cap, m);
         console.log(e)
         try {
 
-            let dat = await(await fetch(`${neNdikz}api/youtube?url=${args[0]}&type=audio&quality=128kbps&apikey=${neoapi}`)).json()
+            let dat = await(await fetch(`${alyaNdikz}api/yta?url=${args[0]}&apikey=${alyaapi}`)).json()
             let yt = dat.data
             let ytl = "https://youtube.com/watch?v="
             let dls = "Download audio succes ( V2 )"
@@ -77,7 +77,7 @@ await conn.sendFile(m.chat, ahh, 'image/jpg', cap, m);
                         title: yt.title,
                         body: dls,
                         sourceUrl: ytl + yt.id,
-                        thumbnail: ytthumb
+                        thumbnail: yt.thumbnail
                     }
                 }
             }

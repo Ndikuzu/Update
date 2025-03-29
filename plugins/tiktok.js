@@ -6,17 +6,18 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     if (!args[0].includes('tiktok.com')) return m.reply(`Invalid Tiktok URL.`)
  //   if (!args[0]) throw `*• Example:* ${usedPrefix + command} https://youtu.be/xxxx`
     m.reply(wait)
-let nt = await fetch(`${neNdikz}api/tiktok?url=${args[0]}&apikey=${neoapi}`)
-        let vas = await nt.json()
-  let v = vas.data
-        conn.sendFile(m.chat, v.video, null, wm, m)
-        conn.sendMessage(m.chat, {
-            react: {
-                text: "✅",
-                key: m.key,
+let data = await(await fetch(`${api.xterm.url}/api/downloader/tiktok?url=${args[0]}&key=${api.xterm.key}`)).json()
+let php = data.data
+  let type = php.type
+        if (type == 'image') {
+            for (let image of php.media) {
+                await conn.sendMessage(m.chat, { image: { url: image.url } }, { quoted: m })
             }
-        })
-    }
+        } else if (type == 'video') {
+            await conn.sendMessage(m.chat, { video: { url: php.media[0].url } }, { quoted: m })
+        }
+         await conn.sendMessage(m.chat, { audio: { url: php.audio.url }, mimetype: "audio/mpeg"}, { quoted: m })
+}
 //conn.sendFile(m.chat, hasil, '', wm, m)
 handler.help = ['tiktok'].map(v => v + ' <url>')
 handler.tags = ['downloader']
