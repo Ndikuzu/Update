@@ -52,7 +52,7 @@ break
   }
 }
 handler.help = ["spotify2"]
-handler.tags = ["download"]
+handler.tags = ["downloader"]
 handler.command = ["spotify2"]
 handler.limit = 5
 module.exports = handler

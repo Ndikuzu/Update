@@ -91,6 +91,7 @@ ${htjava}  ◈ ━━━━━ *INFO BOTZ* ━━━━━ ◈
 ┇ ⫹⫺ .heleh <teks>  (Ⓛ)
 ┇ ⫹⫺ .holoh <teks>  (Ⓛ)
 ┇ ⫹⫺ .jadian  (Ⓛ)
+┇ ⫹⫺ .cantikcek
 ┇ ⫹⫺ .tebakjodoh
 ┇ ⫹⫺ .gacha  (Ⓛ)
 ┇ ⫹⫺ .namaninja <teks>  (Ⓛ)

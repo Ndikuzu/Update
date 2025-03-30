@@ -15,6 +15,8 @@ ${dmenub2} antilink
 ${dmenub2} antilinknokick
 ${dmenub2} antidelete
 ${dmenub2} antiporn
+${dmenub2} antivideo
+${dmenub2} autoreadsw
 ${dmenub2} antiviewonce
 ${dmenub2} antifoto
 ${dmenub2} antitoxic
@@ -225,6 +227,13 @@ let msg = generateWAMessageFromContent(m.chat, {
       }
       chat.antiLink = isEnable
       break
+      case 'autoreadsw':
+      if (!isROwner) {
+          global.dfail('admin', m, conn)
+          throw false
+        }
+      chat.viewStory = isEnable
+      break
           case 'antilinknokick':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
@@ -243,6 +252,15 @@ let msg = generateWAMessageFromContent(m.chat, {
       }
       chat.antiSticker = isEnable
       break
+      case 'antitagsw':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          global.dfail('admin', m, conn)
+          throw false
+        }
+      }
+      chat.antiTagsw = isEnable
+      break
           case 'antiporn':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
@@ -260,6 +278,15 @@ let msg = generateWAMessageFromContent(m.chat, {
         }
       }
       chat.antiFoto = isEnable
+      break
+      case 'antivideo':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          global.dfail('admin', m, conn)
+          throw false
+        }
+      }
+      chat.antiVideo = isEnable
       break
     case 'autosticker':
       if (m.isGroup) {

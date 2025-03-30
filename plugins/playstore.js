@@ -1,7 +1,5 @@
 var { fg } = require('api-dylux');
 let fetch = require('node-fetch');
-var { youtubedl, youtubedlv2, youtubedlv3 } = require('@bochilteam/scraper');
-let limit = 350;
 let handler = async (m, { conn, args, text, isPrems, isOwner, usedPrefix, command }) => {
 if (!text) throw `Contoh .playstore Whatsapp`
     let chat = global.db.data.chats[m.chat];

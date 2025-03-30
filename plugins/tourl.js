@@ -7,15 +7,29 @@ let handler = async (m) => {
   if (!mime) throw 'Tidak ada media yang ditemukan'
   let media = await q.download()
   let isTele = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
+  let sections = []
   let fileSizeLimit = 26 * 1024 * 1024 
   if (media.length > fileSizeLimit) {
     throw 'Ukuran media tidak boleh melebihi 26MB'
   }
   let link = await (isTele ? uploadImage : uploadFile)(media)
-  m.reply(`${link}
+  let caption = `${link}
 ${media.length} Byte(s)
-${isTele ? '(Tidak Ada Tanggal Kedaluwarsa)' : '(Expired 24 hours)'}`)
-}
+${isTele ? '(Tidak Ada Tanggal Kedaluwarsa)' : '(Expired 24 hours)'}`
+const buttons = [{
+                  name: 'single_select',
+                  buttonParamsJson: JSON.stringify({
+                     title: 'Tap Here!',
+                     sections
+                  })
+               }]
+               conn.sendMessage(m.chat, buttons, m, {
+                  header: '',
+                  content: caption,
+                  footer: namabot,
+                  media: thumb
+               })
+               }
 handler.help = ['tourl <reply image>']
 handler.tags = ['sticker']
 handler.command = /^(upload|tourl)$/i
